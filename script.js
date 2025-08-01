@@ -1,4 +1,4 @@
-git // Global variables
+// Global variables
 let map;
 let markers = [];
 let pois = [];
