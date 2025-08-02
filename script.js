@@ -11,12 +11,126 @@ function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 16,
         center: akkoCenter,
-        mapTypeId: 'terrain',
+        mapTypeId: 'roadmap',
         styles: [
+            // Hide default POI labels
             {
                 featureType: "poi",
                 elementType: "labels",
                 stylers: [{ visibility: "off" }]
+            },
+            // Overall map background - elegant dark theme
+            {
+                elementType: "geometry",
+                stylers: [
+                    { color: "#f5f5f5" }
+                ]
+            },
+            // Water areas - subtle blue-gray
+            {
+                featureType: "water",
+                elementType: "geometry",
+                stylers: [
+                    { color: "#c9e2f0" }
+                ]
+            },
+            {
+                featureType: "water",
+                elementType: "labels.text.fill",
+                stylers: [
+                    { color: "#4a6fa5" }
+                ]
+            },
+            // Road styling - clean and minimal
+            {
+                featureType: "road",
+                elementType: "geometry",
+                stylers: [
+                    { color: "#ffffff" }
+                ]
+            },
+            {
+                featureType: "road.arterial",
+                elementType: "geometry",
+                stylers: [
+                    { color: "#fefefe" }
+                ]
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry",
+                stylers: [
+                    { color: "#f8f8f8" }
+                ]
+            },
+            // Road labels - elegant typography
+            {
+                featureType: "road",
+                elementType: "labels.text.fill",
+                stylers: [
+                    { color: "#2d2d2d" }
+                ]
+            },
+            {
+                featureType: "road",
+                elementType: "labels.text.stroke",
+                stylers: [
+                    { color: "#ffffff" },
+                    { weight: 2 }
+                ]
+            },
+            // Administrative boundaries
+            {
+                featureType: "administrative",
+                elementType: "geometry.stroke",
+                stylers: [
+                    { color: "#c7c7c7" }
+                ]
+            },
+            {
+                featureType: "administrative",
+                elementType: "labels.text.fill",
+                stylers: [
+                    { color: "#1a1a1a" }
+                ]
+            },
+            // Landscape and terrain
+            {
+                featureType: "landscape",
+                elementType: "geometry",
+                stylers: [
+                    { color: "#f0f0f0" }
+                ]
+            },
+            {
+                featureType: "landscape.natural",
+                elementType: "geometry",
+                stylers: [
+                    { color: "#e8f5e8" }
+                ]
+            },
+            // Buildings - subtle and clean
+            {
+                featureType: "poi.business",
+                elementType: "geometry",
+                stylers: [
+                    { color: "#e8e8e8" }
+                ]
+            },
+            // Transit stations - minimal
+            {
+                featureType: "transit.station",
+                elementType: "geometry",
+                stylers: [
+                    { color: "#eeeeee" }
+                ]
+            },
+            {
+                featureType: "transit.station",
+                elementType: "labels.text.fill",
+                stylers: [
+                    { color: "#606060" }
+                ]
             }
         ],
         mapTypeControl: true,
@@ -72,14 +186,14 @@ function createMarkers() {
             title: poi.name,
             icon: {
                 url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                        <circle cx="15" cy="15" r="12" fill="#007bff" stroke="white" stroke-width="3"/>
-                        <circle cx="15" cy="15" r="6" fill="white"/>
-                        <text x="15" y="19" text-anchor="middle" fill="#007bff" font-size="10" font-weight="bold">${index + 1}</text>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <circle cx="16" cy="16" r="13" fill="#1a1a1a" stroke="white" stroke-width="3"/>
+                        <circle cx="16" cy="16" r="7" fill="white"/>
+                        <text x="16" y="20" text-anchor="middle" fill="#1a1a1a" font-size="10" font-weight="bold">${index + 1}</text>
                     </svg>
                 `),
-                scaledSize: new google.maps.Size(30, 30),
-                anchor: new google.maps.Point(15, 15)
+                scaledSize: new google.maps.Size(32, 32),
+                anchor: new google.maps.Point(16, 16)
             },
             animation: google.maps.Animation.DROP
         });
