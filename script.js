@@ -185,15 +185,9 @@ function createMarkers() {
             map: map,
             title: poi.name,
             icon: {
-                url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                        <circle cx="16" cy="16" r="13" fill="#1a1a1a" stroke="white" stroke-width="3"/>
-                        <circle cx="16" cy="16" r="7" fill="white"/>
-                        <text x="16" y="20" text-anchor="middle" fill="#1a1a1a" font-size="10" font-weight="bold">${index + 1}</text>
-                    </svg>
-                `),
-                scaledSize: new google.maps.Size(32, 32),
-                anchor: new google.maps.Point(16, 16)
+                url: 'images/pins.png',
+                scaledSize: new google.maps.Size(40, 40),
+                anchor: new google.maps.Point(20, 40) // Anchor at bottom center of pin
             },
             animation: google.maps.Animation.DROP
         });
